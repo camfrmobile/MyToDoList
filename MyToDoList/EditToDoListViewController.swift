@@ -14,6 +14,21 @@ class EditToDoListViewController: UIViewController {
     @IBOutlet weak var isDoneSwitch: UISwitch!
     @IBOutlet weak var buttonSave: UIButton!
     
+    let datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .inline
+        picker.datePickerMode = .date
+        picker.locale = Locale(identifier: "vi")
+        return picker
+    } ()
+    
+    let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.locale = Locale(identifier: "vi")
+        return formatter
+    } ()
+    
     var toDoList: ToDoList = ToDoList(todo: "", isDone: false, expired: "")
     var index: Int?
     
@@ -22,7 +37,10 @@ class EditToDoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+    }
+    
+    func setupUI() {
         if index == nil {
             buttonSave.backgroundColor = .green
             buttonSave.titleLabel?.text = "Thêm mới"
@@ -35,7 +53,11 @@ class EditToDoListViewController: UIViewController {
             toDoTextField.text = toDoList.todo
             expiredTextField.text = toDoList.expired
             isDoneSwitch.isOn = toDoList.isDone
+            
+            datePicker.date = formatter.date(from: toDoList.expired) ?? Date()
         }
+        datePicker.addTarget(self, action: #selector(handleDateChange), for: .valueChanged)
+        expiredTextField.inputAccessoryView = datePicker
     }
 
     @IBAction func actionSaveButton(_ sender: UIButton) {
@@ -48,4 +70,8 @@ class EditToDoListViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
+    @objc func handleDateChange() {
+        expiredTextField.text = formatter.string(from: datePicker.date)
+        view.endEditing(true)
+    }
 }

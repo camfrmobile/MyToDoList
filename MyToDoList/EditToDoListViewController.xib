@@ -69,7 +69,7 @@
                 <constraint firstItem="ae5-CO-YdK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QTU-49-hMQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ae5-CO-YdK" secondAttribute="bottom" id="oZN-Bd-gw0"/>
             </constraints>
-            <point key="canvasLocation" x="51" y="21"/>
+            <point key="canvasLocation" x="50.769230769230766" y="20.616113744075829"/>
         </view>
     </objects>
     <resources>
