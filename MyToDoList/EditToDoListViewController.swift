@@ -9,7 +9,7 @@ import UIKit
 
 class EditToDoListViewController: UIViewController {
     
-    @IBOutlet weak var toDoTextField: UITextField!
+    @IBOutlet weak var toDoTextView: UITextView!
     @IBOutlet weak var expiredTextField: UITextField!
     @IBOutlet weak var isDoneSwitch: UISwitch!
     @IBOutlet weak var buttonSave: UIButton!
@@ -44,24 +44,25 @@ class EditToDoListViewController: UIViewController {
         if index == nil {
             buttonSave.backgroundColor = .green
             buttonSave.titleLabel?.text = "Thêm mới"
-            
-            toDoTextField.becomeFirstResponder()
         } else {
             buttonSave.backgroundColor = .cyan
             buttonSave.titleLabel?.text = "Cập nhật"
             
-            toDoTextField.text = toDoList.todo
+            toDoTextView.text = toDoList.todo
             expiredTextField.text = toDoList.expired
             isDoneSwitch.isOn = toDoList.isDone
             
             datePicker.date = formatter.date(from: toDoList.expired) ?? Date()
         }
+        toDoTextView.becomeFirstResponder()
+        
         datePicker.addTarget(self, action: #selector(handleDateChange), for: .valueChanged)
+        
         expiredTextField.inputAccessoryView = datePicker
     }
 
     @IBAction func actionSaveButton(_ sender: UIButton) {
-        toDoList.todo = toDoTextField.text ?? ""
+        toDoList.todo = toDoTextView.text ?? ""
         toDoList.expired = expiredTextField.text ?? ""
         toDoList.isDone = isDoneSwitch.isOn
         

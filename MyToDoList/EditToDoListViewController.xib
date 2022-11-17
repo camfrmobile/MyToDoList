@@ -14,7 +14,7 @@
                 <outlet property="buttonSave" destination="Quu-OO-bD6" id="iXI-7L-iHK"/>
                 <outlet property="expiredTextField" destination="cz0-84-7pY" id="PhK-ac-FST"/>
                 <outlet property="isDoneSwitch" destination="7wI-Jl-HL0" id="twf-JO-tGC"/>
-                <outlet property="toDoTextField" destination="VJ9-wV-IAT" id="DMN-Ph-wDQ"/>
+                <outlet property="toDoTextView" destination="zwU-xn-Ked" id="1u1-oo-ZcB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,23 +27,25 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0fl-qg-Ltw">
-                            <rect key="frame" x="50" y="100" width="290" height="226"/>
+                            <rect key="frame" x="50" y="100.00000000000001" width="290" height="227.33333333333337"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Việc cần làm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJ9-wV-IAT">
-                                    <rect key="frame" x="0.0" y="0.0" width="290" height="34"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Việc cần làm mới" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zwU-xn-Ked">
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="34.333333333333336"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="textColor" systemColor="labelColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ngày hết hạn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-84-7pY">
-                                    <rect key="frame" x="0.0" y="64" width="290" height="34"/>
+                                    <rect key="frame" x="0.0" y="64.333333333333343" width="290" height="34.333333333333343"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="Đã làm xong" translatesAutoresizingMaskIntoConstraints="NO" id="7wI-Jl-HL0">
-                                    <rect key="frame" x="0.0" y="128" width="292" height="34"/>
+                                    <rect key="frame" x="0.0" y="128.66666666666669" width="292" height="34.333333333333343"/>
                                 </switch>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quu-OO-bD6">
-                                    <rect key="frame" x="0.0" y="192" width="290" height="34"/>
+                                    <rect key="frame" x="0.0" y="193" width="290" height="34.333333333333343"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="gray" title="Saving..."/>
                                     <connections>
@@ -73,6 +75,9 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
