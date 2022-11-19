@@ -52,10 +52,14 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let tableCell = UITableViewCell()
         
-        tableCell.textLabel?.text = toDoLists[indexPath.row].todo
-        tableCell.detailTextLabel?.text = toDoLists[indexPath.row].expired
+        let toDo = toDoLists[indexPath.row]
+        var title = "\(toDo.imagePath.count > 0 ? "🏞" : "")\(toDo.videoPath.count > 0 ? "🎬" : "")\(toDo.todo)"
+
+        tableCell.textLabel?.text = title
         
-        if toDoLists[indexPath.row].isDone {
+        tableCell.detailTextLabel?.text = toDo.expired
+        
+        if toDo.isDone {
             tableCell.imageView?.image = UIImage(systemName: "checkmark.circle.fill")
         } else {
             tableCell.imageView?.image = UIImage(systemName: "poweroff")
@@ -66,11 +70,14 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alertController = UIAlertController(title: toDoLists[indexPath.row].todo, message: "", preferredStyle: .alert)
-        let actionOk = UIAlertAction(title: "OK", style: .cancel)
-        alertController.addAction(actionOk)
+//        let alertController = UIAlertController(title: toDoLists[indexPath.row].todo, message: "", preferredStyle: .alert)
+//        let actionOk = UIAlertAction(title: "OK", style: .cancel)
+//        alertController.addAction(actionOk)
         
-        present(alertController, animated: true)
+        let noteVC = NoteViewController()
+        noteVC.toDoList = toDoLists[indexPath.row]
+        
+        navigationController?.pushViewController(noteVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App cần truy cập thư viện ảnh</string>
+	<key>NSCameraUsageDescription</key>
+	<string>App cần truy cập camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App cần truy cập micro</string>
+	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
+	<false/>
+</dict>
 </plist>

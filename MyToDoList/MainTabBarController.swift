@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
     func setupTabBar() {
         let homeVC = ToDoListViewController()
         let navigationHome = UINavigationController(rootViewController: homeVC)
-        navigationHome.tabBarItem = UITabBarItem(title: "To do list", image: UIImage(systemName: "list.clipboard"), selectedImage: UIImage(systemName: "list.clipboard.fill"))
+        navigationHome.tabBarItem = UITabBarItem(title: "To do list", image: UIImage(systemName: "checklist"), selectedImage: UIImage(systemName: "checklist.checked"))
         
         let noteVC = NoteViewController()
         noteVC.tabBarItem = UITabBarItem(title: "Note", image: UIImage(systemName: "note"), selectedImage: UIImage(systemName: "note.text"))

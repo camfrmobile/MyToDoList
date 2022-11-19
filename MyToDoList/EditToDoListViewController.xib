@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditToDoListViewController" customModule="MyToDoList" customModuleProvider="target">
             <connections>
                 <outlet property="buttonSave" destination="Quu-OO-bD6" id="iXI-7L-iHK"/>
+                <outlet property="chooseImageView" destination="zHf-7B-rJP" id="ic2-U9-UCn"/>
+                <outlet property="chooseVideoView" destination="UAm-HB-1nl" id="OFK-xY-6me"/>
                 <outlet property="expiredTextField" destination="cz0-84-7pY" id="PhK-ac-FST"/>
                 <outlet property="isDoneSwitch" destination="7wI-Jl-HL0" id="twf-JO-tGC"/>
                 <outlet property="toDoTextView" destination="zwU-xn-Ked" id="1u1-oo-ZcB"/>
@@ -26,28 +28,41 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ae5-CO-YdK">
                     <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0fl-qg-Ltw">
-                            <rect key="frame" x="50" y="100.00000000000001" width="290" height="227.33333333333337"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="0fl-qg-Ltw">
+                            <rect key="frame" x="50" y="100" width="290" height="563"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Việc cần làm mới" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zwU-xn-Ked">
-                                    <rect key="frame" x="0.0" y="0.0" width="290" height="34.333333333333336"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="77.333333333333329"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <color key="textColor" systemColor="labelColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ngày hết hạn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-84-7pY">
-                                    <rect key="frame" x="0.0" y="64.333333333333343" width="290" height="34.333333333333343"/>
+                                    <rect key="frame" x="0.0" y="121.33333333333331" width="290" height="77.333333333333314"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="Đã làm xong" translatesAutoresizingMaskIntoConstraints="NO" id="7wI-Jl-HL0">
-                                    <rect key="frame" x="0.0" y="128.66666666666669" width="292" height="34.333333333333343"/>
+                                    <rect key="frame" x="0.0" y="242.66666666666666" width="292" height="77.666666666666657"/>
                                 </switch>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uRC-xK-AB8">
+                                    <rect key="frame" x="0.0" y="364.33333333333331" width="290" height="77.333333333333314"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zHf-7B-rJP">
+                                            <rect key="frame" x="0.0" y="1.6666666666666643" width="135" height="74.333333333333343"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UAm-HB-1nl">
+                                            <rect key="frame" x="155" y="2.6666666666666643" width="135" height="72.666666666666643"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quu-OO-bD6">
-                                    <rect key="frame" x="0.0" y="193" width="290" height="34.333333333333343"/>
+                                    <rect key="frame" x="0.0" y="485.66666666666657" width="290" height="77.333333333333314"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="gray" title="Saving..."/>
+                                    <buttonConfiguration key="configuration" style="gray" title="Save"/>
                                     <connections>
                                         <action selector="actionSaveButton:" destination="-1" eventType="touchUpInside" id="281-fB-EJ1"/>
                                     </connections>
@@ -55,9 +70,10 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="0fl-qg-Ltw" secondAttribute="trailing" constant="50" id="23u-UY-WTd"/>
+                        <constraint firstAttribute="bottom" secondItem="0fl-qg-Ltw" secondAttribute="bottom" constant="100" id="ImB-zf-SL6"/>
                         <constraint firstItem="0fl-qg-Ltw" firstAttribute="top" secondItem="ae5-CO-YdK" secondAttribute="top" constant="100" id="Rfz-Cn-2pn"/>
                         <constraint firstItem="0fl-qg-Ltw" firstAttribute="leading" secondItem="ae5-CO-YdK" secondAttribute="leading" constant="50" id="nKn-XH-lJN"/>
                     </constraints>
@@ -75,11 +91,16 @@
         </view>
     </objects>
     <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <image name="video" catalog="system" width="128" height="82"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
